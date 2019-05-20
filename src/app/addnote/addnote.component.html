@@ -1,0 +1,19 @@
+<div class="header">
+  <mat-toolbar style="background: #fff !important;">
+    <mat-toolbar-row>
+      <span>Add Note</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div class="form">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Title" [(ngModel)]="title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Notes" [(ngModel)]="description" rows="7"></textarea>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" (click)="addNote()">Save</button>
+</div>

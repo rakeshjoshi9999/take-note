@@ -1,0 +1,36 @@
+<div class="header">
+  <mat-toolbar style="background: #fff !important;">
+
+    <mat-toolbar-row>
+      <span>My Notes</span>
+      <span class="example-spacer"></span>
+      <mat-icon (click)="showSearch = !showSearch" class="navIcon search" aria-hidden="false"
+        aria-label="Example heart icon">
+        search</mat-icon>
+      <mat-icon routerLink="/add" class="navIcon add">add
+      </mat-icon>
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="showSearch">
+      <mat-form-field>
+        <input matInput type="search" placeholder="Search" [(ngModel)]="searchKey">
+      </mat-form-field>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+
+
+<div class="notes">
+  <mat-card *ngFor='let note of notes | searchNotes:searchKey' class="note">
+    <div (click)="showNote(note)">
+      <h4>{{note.title}}</h4>
+      <mat-card-content>
+        <p>
+          {{note.description}}
+        </p>
+      </mat-card-content>
+      <span>{{note.createdDate}}</span>
+    </div>
+
+  </mat-card>
+</div>
