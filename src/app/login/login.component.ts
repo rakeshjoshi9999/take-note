@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from  '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
-
+loggedIn;
+  constructor(private  authService:  AuthService, private router:Router) { }
   ngOnInit() {
+    if(localStorage.getItem('loggedIn')){
+      this.router.navigate(['/notes']);
+    }
   }
 
+ async onClickLogin(){
+   try{
+     await this.authService.GoogleAuth();
+     this.loggedIn = true;
+     localStorage.setItem('loggedIn',this.loggedIn);
+    this.router.navigate(['/notes']);
+  }catch(e){
+  console.log(e);
+  }
+}
 }

@@ -1,14 +1,21 @@
 <div class="header">
   <mat-toolbar style="background: #fff !important;">
     <mat-toolbar-row>
+        <mat-icon (click)="goBack()" class="navIcon search" aria-hidden="false">
+            keyboard_arrow_left</mat-icon>
       <span>{{this.note.title}}</span>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>
 <div>
   <mat-card class="note">
-    <h4>Description</h4>
-    <mat-card-content>
+      <mat-card-title>Description<span class="delete-btn">
+          <button mat-button (click)="deleteNote()" >
+            <mat-icon>delete</mat-icon>
+          </button>
+      </span>
+      </mat-card-title>
+<mat-card-content>    
       <p>
         {{this.note.description}}
       </p>

@@ -30,4 +30,8 @@ export class AddnoteComponent implements OnInit {
     }).catch(err => console.log('Err: ', err))
   }
 
+  goBack(){
+    this.router.navigateByUrl('notes');
+  }
+
 }

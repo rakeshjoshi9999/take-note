@@ -1,6 +1,8 @@
 <div class="header">
   <mat-toolbar style="background: #fff !important;">
     <mat-toolbar-row>
+        <mat-icon (click)="goBack()" class="navIcon" aria-hidden="false">
+            keyboard_arrow_left</mat-icon>
       <span>Add Note</span>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -15,5 +17,5 @@
       <textarea matInput placeholder="Notes" [(ngModel)]="description" rows="7"></textarea>
     </mat-form-field>
   </div>
-  <button mat-raised-button color="primary" (click)="addNote()">Save</button>
+  <button mat-raised-button color="basic" (click)="addNote()">Save</button>
 </div>

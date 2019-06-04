@@ -6,7 +6,7 @@ import { AddnoteComponent } from './addnote/addnote.component';
 import { ShownoteComponent } from './shownote/shownote.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'notes', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'notes', component: NotesComponent },
   { path: 'add', component: AddnoteComponent },

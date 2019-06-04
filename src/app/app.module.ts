@@ -14,13 +14,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AddnoteComponent } from './addnote/addnote.component';
 import { ShownoteComponent } from './shownote/shownote.component';
-import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatButtonModule,MatSnackBarModule } from '@angular/material';
 
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import { SearchNotesPipe } from './search-notes.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -46,15 +48,18 @@ import { SearchNotesPipe } from './search-notes.pipe';
       appId: "1:887867827716:web:4bf0992b60907026"
     }),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
     MatGridListModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatSnackBarModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

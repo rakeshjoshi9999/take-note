@@ -23,10 +23,7 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getNotes();
-  }
-
-  getNotes() {
+    console.log('Here>>>>>');
     this.collection = this.db.collection('notes');
     this.collection.snapshotChanges().pipe(
       map(actions => {
